@@ -7,6 +7,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  store,
+  store, // the store is injected here which is available in all child components and where we can access with this.$store
   render: h => h(App)
 }).$mount("#app");
