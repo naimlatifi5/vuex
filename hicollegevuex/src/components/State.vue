@@ -17,6 +17,7 @@ import { mapState } from "vuex";
 export default {
   name: "State",
   computed: {
+    // what if we want to have local computed method and vuex states
     localComputed() {
       return "computed property";
     },

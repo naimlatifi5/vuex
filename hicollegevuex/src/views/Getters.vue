@@ -1,11 +1,16 @@
 <template>
   <div>
-    Getters
+    <getters></getters>
   </div>
 </template>
 
 <script>
-export default {};
+import Getters from "@/components/Getters.vue";
+export default {
+  components: {
+    Getters
+  }
+};
 </script>
 
 <style></style>
