@@ -1,14 +1,14 @@
 <template>
   <div>
-    <getters></getters>
+    <getters-vuex></getters-vuex>
   </div>
 </template>
 
 <script>
-import Getters from "@/components/Getters.vue";
+import GettersVuex from "@/components/Getters.vue";
 export default {
   components: {
-    Getters
+    GettersVuex
   }
 };
 </script>

@@ -1,9 +1,15 @@
 <template>
-  <div>Mutations</div>
+  <mutations-vuex></mutations-vuex>
 </template>
 
 <script>
-export default {};
+import MutationsVuex from "@/components/Mutations.vue";
+export default {
+  name: "Modules",
+  components: {
+    MutationsVuex
+  }
+};
 </script>
 
 <style></style>

@@ -1,5 +1,5 @@
 <template>
-  <div>Modules</div>
+  <div class="modules"></div>
 </template>
 
 <script>

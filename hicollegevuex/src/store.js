@@ -6,6 +6,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  // think of state as data property in vue
   state: {
     count: 0,
     boolVal: false,
@@ -29,16 +30,54 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    increment(state) {
+    // you cannot call a mutation handler directly. Think of mutations as events 
+    // you can pass a payload to mutation as an argument
+    // mutation functions are synchronouse meaning that we can capture it will capture the state before and after in devtools and debugging
+    increment(state, payload) {
+      console.log("payload passed", payload);
+      // we are chainging the state here
       state.count++;
+    },
+    decrement(state, payload) {
+      console.log("decrement payload", payload);
+      if (state.count <= 0) {
+        return;
+      }
+
+      state.count--;
     }
   },
 
   getters: {
+    // think of getters as computed data and which are cached
     doneItems(state) {
       return state.todos.filter(item => item.done === true);
     }
   },
+  // actions are similar to mutations but with differences that instead of mutating the state 
+  // actions commit a mutation.
+  // actions can contain asynchronous operations compared to mutations that are synchronous functions
   actions: {
+    increment(context) {
+      // context object exposes the methods/properties on the store instance where we can access 
+      // state , getters with commit.state/commit.getters and call a mutation with context.commit
+      context.commit("increment");
+    },
+    // we can also use destructing to access the commit property as 
+    increment1({ commit }){
+      commit("increment1");
+    },
+    incrementAsync({ commit }) {
+      setTimeout(() => {
+        commit("increment");
+      }, 1000);
+    },
+    actionWithPayload({ commit }, product) {
+      console.log(product)
+      commit("increment");
+    },
+    decrement({commit}, item) {
+      commit("decrement");
+    }
   }
 });
