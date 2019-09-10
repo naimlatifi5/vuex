@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Challenge1
-  </div>
+  <div>sibling component2</div>
 </template>
 
 <script>
