@@ -45,6 +45,10 @@ export default new Vuex.Store({
       }
 
       state.count--;
+    },
+    ADD_TODO(state, payload) {
+      // add an object to todos array 
+      state.todos.push(payload);
     }
   },
 
@@ -73,11 +77,14 @@ export default new Vuex.Store({
       }, 1000);
     },
     actionWithPayload({ commit }, product) {
-      console.log(product)
+      console.log(product);
       commit("increment");
     },
-    decrement({commit}, item) {
+    decrement({ commit }, item) {
       commit("decrement");
+    },
+    addTodos({ commit }, item) {
+      commit("ADD_TODO", item);
     }
   }
 });

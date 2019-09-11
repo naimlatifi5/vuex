@@ -4,6 +4,12 @@
     <div>Count state : {{ count }}</div>
     <button @click="this.incrementButton">+</button>
     <button @click="decrement">-</button>
+    <br />
+    <h4>Action with payload</h4>
+    <div v-for="(todo, index) in todos" :key="index">
+      <div>{{ todo.text }}</div>
+    </div>
+    <button @click="addToDoItem">Add toDo</button>
   </div>
 </template>
 
@@ -16,10 +22,18 @@ export default {
     console.log(this.$store.dispatch("increment"));
   },
   computed: {
-    ...mapState(["count"])
+    ...mapState(["count", "todos"])
   },
   methods: {
-    ...mapActions(["increment", "decrement"]),
+    addToDoItem() {
+      const item = {
+        id: 4,
+        text: "hello todos from component",
+        done: true
+      };
+      this.addTodos(item);
+    },
+    ...mapActions(["increment", "addTodos", "decrement"]),
     // use a
     ...mapActions({
       incrementButton: "increment"

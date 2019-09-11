@@ -1,6 +1,11 @@
 <template>
   <div class="counter">
-    <button-counter :count="count"></button-counter>
+    Parent value count passed as props and recieves value
+    <div>{{ count }}</div>
+    <button-counter
+      :count="count"
+      @changedCount="counter($event)"
+    ></button-counter>
   </div>
 </template>
 
@@ -14,6 +19,11 @@ export default {
   },
   components: {
     buttonCounter
+  },
+  methods: {
+    counter(counter) {
+      this.count = counter;
+    }
   }
 };
 </script>

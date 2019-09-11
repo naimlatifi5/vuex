@@ -1,6 +1,5 @@
 <template>
   <div class="button-counter">
-    {{ counter }}
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
   </div>
@@ -23,12 +22,14 @@ export default {
   methods: {
     increment() {
       this.counter++;
+      this.$emit("changedCount", this.counter);
     },
     decrement() {
       if (this.counter <= 0) {
         return;
       }
       this.counter--;
+      this.$emit("changedCount", this.counter);
     }
   }
 };
