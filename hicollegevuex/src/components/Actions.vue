@@ -9,6 +9,8 @@
     <div v-for="(todo, index) in todos" :key="index">
       <div>{{ todo.text }}</div>
     </div>
+    <input type="text" v-model="inputValue" /><br />
+
     <button @click="addToDoItem">Add toDo</button>
   </div>
 </template>
@@ -17,6 +19,11 @@
 import { mapState, mapActions } from "vuex";
 export default {
   name: "ActionsVuex",
+  data() {
+    return {
+      inputValue: ""
+    };
+  },
   mounted() {
     // we can dispatch action methods as
     console.log(this.$store.dispatch("increment"));
@@ -28,7 +35,7 @@ export default {
     addToDoItem() {
       const item = {
         id: 4,
-        text: "hello todos from component",
+        text: this.inputValue,
         done: true
       };
       this.addTodos(item);

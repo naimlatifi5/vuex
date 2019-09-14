@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import buttonCounter from "./buttonCounter.vue";
+import buttonCounter from "./buttonCounterChildComponent.vue";
 export default {
   data() {
     return {
