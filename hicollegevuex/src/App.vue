@@ -38,4 +38,10 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 </style>

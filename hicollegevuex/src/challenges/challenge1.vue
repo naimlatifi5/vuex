@@ -10,8 +10,17 @@
       loop through them as below
     </p>
     <ul>
-      <li v-for="(product, index) in products" :key="index">
-        {{ product.name }} || <strong>{{ product.price }} kr</strong>
+      <li>
+        Iphone || 5000
+      </li>
+      <li>
+        Samsung || 7999
+      </li>
+      <li>
+        Iphone 6 || 4400
+      </li>
+      <li>
+        Ipad || 3800
       </li>
     </ul>
   </div>
@@ -31,11 +40,3 @@ export default {
   }
 };
 </script>
-
-<style>
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-</style>

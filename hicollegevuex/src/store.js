@@ -30,7 +30,7 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    // you cannot call a mutation handler directly. Think of mutations as events 
+    // you cannot call a mutation handler directly. Think of mutations as events
     // you can pass a payload to mutation as an argument
     // mutation functions are synchronouse meaning that we can capture it will capture the state before and after in devtools and debugging
     increment(state, payload) {
@@ -47,7 +47,7 @@ export default new Vuex.Store({
       state.count--;
     },
     ADD_TODO(state, payload) {
-      // add an object to todos array 
+      // add an object to todos array
       state.todos.push(payload);
     }
   },
@@ -58,17 +58,17 @@ export default new Vuex.Store({
       return state.todos.filter(item => item.done === true);
     }
   },
-  // actions are similar to mutations but with differences that instead of mutating the state 
+  // actions are similar to mutations but with differences that instead of mutating the state.
   // actions commit a mutation.
   // actions can contain asynchronous operations compared to mutations that are synchronous functions
   actions: {
     increment(context) {
-      // context object exposes the methods/properties on the store instance where we can access 
+      // context object exposes the methods/properties on the store instance where we can access.
       // state , getters with commit.state/commit.getters and call a mutation with context.commit
       context.commit("increment");
     },
-    // we can also use destructing to access the commit property as 
-    increment1({ commit }){
+    // we can also use destructing to access the commit property as
+    increment1({ commit }) {
       commit("increment1");
     },
     incrementAsync({ commit }) {
@@ -80,7 +80,7 @@ export default new Vuex.Store({
       console.log(product);
       commit("increment");
     },
-    decrement({ commit }, item) {
+    decrement({ commit }) {
       commit("decrement");
     },
     addTodos({ commit }, item) {
