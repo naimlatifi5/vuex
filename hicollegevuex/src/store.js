@@ -33,6 +33,11 @@ export default new Vuex.Store({
     // you cannot call a mutation handler directly. Think of mutations as events
     // you can pass a payload to mutation as an argument
     // mutation functions are synchronouse meaning that we can capture it will capture the state before and after in devtools and debugging
+    // mutations are synchronous and used only to update the state
+
+    /** Inside actions you can run asynchronous code but not in mutations. So use actions for asynchronous code otherwise use mutations.
+    Inside actions you can access getters, state, mutations (committing them), actions (dispatching them) in mutations you can access the state. So if you want to access only the state use mutations otherwise use actions. */
+
     increment(state, payload) {
       console.log("payload passed", payload);
       // we are chainging the state here

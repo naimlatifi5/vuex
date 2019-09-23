@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>#Challenge2</h1>
+    <h1>#Challenge2 Getters</h1>
     <p>
       We want to manipulate with products data
     </p>
@@ -26,21 +26,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
-  name: "Challenge2",
-
-  computed: {
-    filterArrayProducts() {
-      let mapProducts = this.products.map(item => {
-        return {
-          price: item.price * 2
-        };
-      });
-      return mapProducts;
-    },
-    ...mapGetters(["multiplePrice"])
-  }
+  name: "Challenge2"
 };
 </script>
 
