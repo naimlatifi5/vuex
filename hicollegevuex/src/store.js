@@ -26,6 +26,11 @@ export default new Vuex.Store({
         id: 3,
         text: "I need to buy milk",
         done: true
+      },
+      {
+        id: 4,
+        text: "I need to buy fish",
+        done: false
       }
     ]
   },
@@ -38,10 +43,18 @@ export default new Vuex.Store({
     /** Inside actions you can run asynchronous code but not in mutations. So use actions for asynchronous code otherwise use mutations.
     Inside actions you can access getters, state, mutations (committing them), actions (dispatching them) in mutations you can access the state. So if you want to access only the state use mutations otherwise use actions. */
 
-    increment(state, payload) {
+    increment(state) {
+      state.count++;
+    },
+    incrementPayload(state, payload) {
       console.log("payload passed", payload);
       // we are chainging the state here
-      state.count++;
+      if (payload) {
+        console.log("we have payload");
+        state.count = state.count * payload;
+      } else {
+        state.count++;
+      }
     },
     decrement(state, payload) {
       console.log("decrement payload", payload);
@@ -67,15 +80,16 @@ export default new Vuex.Store({
   // actions commit a mutation.
   // actions can contain asynchronous operations compared to mutations that are synchronous functions
   actions: {
-    increment(context) {
+    increment({ commit }) {
       // context object exposes the methods/properties on the store instance where we can access.
       // state , getters with commit.state/commit.getters and call a mutation with context.commit
-      context.commit("increment");
+      commit("increment");
     },
-    // we can also use destructing to access the commit property as
-    increment1({ commit }) {
-      commit("increment1");
+
+    incrementPayload({ commit }, payload) {
+      commit("incrementPayload", payload);
     },
+
     incrementAsync({ commit }) {
       setTimeout(() => {
         commit("increment");
