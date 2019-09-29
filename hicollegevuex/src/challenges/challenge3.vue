@@ -8,7 +8,7 @@
     </p>
     <p>
       1. We want to mutate state so that class active will change its state on
-      page load loads
+      page load
     </p>
     <p>
       2. When we click the div element it will mutate state and toggle the class
@@ -26,18 +26,11 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
 export default {
   name: "myDiv",
-  mounted() {
-    this.initPageLoad(true);
-  },
-  computed: {
-    ...mapState(["toggle"])
-  },
-  methods: {
-    ...mapMutations(["toggleElement", "initPageLoad"])
-  }
+  mounted() {},
+  computed: {},
+  methods: {}
 };
 </script>
 
