@@ -7,6 +7,7 @@
     <br />
     <br />
     <button @click="addCountItem">Multiple count</button>
+    <br />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
   mounted() {
     // we can dispatch action methods as
     console.log(this.$store.dispatch("increment"));
+    console.log(this.$store.state.Module1.countIncrement);
   },
   computed: {
     ...mapState(["count", "todos"])

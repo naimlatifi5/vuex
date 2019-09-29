@@ -1,9 +1,16 @@
 <template>
-  <div class="modules"></div>
+  <div class="modules">
+    <modules></modules>
+  </div>
 </template>
 
 <script>
-export default {};
+import Modules from "@/components/Modules.vue";
+export default {
+  components: {
+    Modules
+  }
+};
 </script>
 
 <style></style>

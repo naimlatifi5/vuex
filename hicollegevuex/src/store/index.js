@@ -1,12 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import Module1 from "./modules/Module1.js";
 /* ********* Welcome to store and vuex *******/
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   // think of state as data property in vue
+  modules: {
+    Module1
+  },
   state: {
     count: 0,
     boolVal: false,
